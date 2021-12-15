@@ -33,7 +33,7 @@ const BPO_Services = ({ BPOPageposts }) => {
     </>
   )
 }
-export async function getStaticprops() {
+export async function getServersideprops() {
   const res = await fetch(`https://admin-qanvus.iiinigence.io/bpo-pages`)
   const BPOPageposts = await res.json()
   return {

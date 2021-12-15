@@ -87,7 +87,7 @@ export const CarrerApplySection = ({ heading, info }) => {
 export default Career;
 
 
-export async function getStaticprops() {
+export async function getServersideprops() {
     const res = await fetch(`https://admin-qanvus.iiinigence.io/career-pages`)
     const CareerPageposts = await res.json()
     return {

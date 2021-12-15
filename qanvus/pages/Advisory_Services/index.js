@@ -37,7 +37,7 @@ const AdvisoryServices = ({ AdvisoryPageposts }) => {
   )
 }
 
-export async function getStaticprops() {
+export async function getServersideprops() {
   const res = await fetch(`https://admin-qanvus.iiinigence.io/advisory-pages`)
   const AdvisoryPageposts = await res.json()
   return {

@@ -41,7 +41,7 @@ const About = ({ AboutPageposts }) => {
     )
 }
 
-export async function getStaticprops() {
+export async function getServersideprops() {
     const res = await fetch(`https://admin-qanvus.iiinigence.io/about-pages`)
     const AboutPageposts = await res.json()
     return {

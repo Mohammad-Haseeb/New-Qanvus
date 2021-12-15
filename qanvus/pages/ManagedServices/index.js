@@ -33,7 +33,7 @@ const ManagedServiceGraphics = ({ ManagedPageposts }) => {
   )
 }
 
-export async function getStaticprops() {
+export async function getServersideprops() {
   const res = await fetch(`https://admin-qanvus.iiinigence.io/managed-services-pages`)
   const ManagedPageposts = await res.json()
   return {

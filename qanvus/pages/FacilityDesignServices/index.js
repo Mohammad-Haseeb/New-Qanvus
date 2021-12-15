@@ -31,7 +31,7 @@ const FacilityAndDesignServices = ({ FacilityPageposts }) => {
   )
 }
 
-export async function getStaticprops() {
+export async function getServersideprops() {
   const res = await fetch(`https://admin-qanvus.iiinigence.io/facility-design-and-optimization-pages`)
   const FacilityPageposts = await res.json()
   return {

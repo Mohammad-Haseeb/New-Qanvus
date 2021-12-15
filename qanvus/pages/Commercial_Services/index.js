@@ -31,7 +31,7 @@ const CommercialServices = ({ CommercialPageposts }) => {
   )
 }
 
-export async function getStaticprops() {
+export async function getServersideprops() {
   const res = await fetch(`https://admin-qanvus.iiinigence.io/commercial-industrial-formulations-pages`)
   const CommercialPageposts = await res.json()
   return {

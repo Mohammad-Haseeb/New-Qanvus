@@ -35,7 +35,7 @@ const ClinicalTrials_Services = ({ ClinicalPageposts }) => {
   )
 }
 
-export async function getStaticprops() {
+export async function getServersideprops() {
   const res = await fetch(`https://admin-qanvus.iiinigence.io/clinical-trials-pages`)
   const ClinicalPageposts = await res.json()
   return {

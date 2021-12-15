@@ -23,7 +23,7 @@ export default function Home({ HomePageposts }) {
 }
 
 
-export async function getStaticprops() {
+export async function getServersideprops() {
   const res = await fetch(`https://admin-qanvus.iiinigence.io/home-pages`)
   const HomePageposts = await res.json()
   return {
