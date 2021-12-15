@@ -11,7 +11,7 @@ import AdvisoryApplySection from './ApplySection/index';
 
 const AdvisoryServices = ({ AdvisoryPageposts }) => {
   let data = AdvisoryPageposts[0];
-
+   if(data.length > 0){
   return (
     <>
       <Script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/9087966.js"></Script>
@@ -35,9 +35,13 @@ const AdvisoryServices = ({ AdvisoryPageposts }) => {
       <AdvisoryApplySection heading={data["Schedule_Call_heading"]} details={data["Schedule_Call_info"]} />
     </>
   )
+   }
+   else{
+     return <h1>Loading</h1>
+   }
 }
 
-export async function getServersideprops() {
+export async function getServersideprops () {
   const res = await fetch(`https://admin-qanvus.iiinigence.io/advisory-pages`)
   const AdvisoryPageposts = await res.json()
   return {

@@ -11,6 +11,7 @@ import BPOApplySection from './BPOApplySection/index';
 import ServicesGraphicImageComponent from '../ManagedServices/ServicesGraphicImage/index';
 const BPO_Services = ({ BPOPageposts }) => {
   let data = BPOPageposts[0];
+  if(data.length > 0) {
   return (
     <>
       <Script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/9087966.js"></Script>
@@ -32,8 +33,12 @@ const BPO_Services = ({ BPOPageposts }) => {
       {/* <h1>Managed BPO Services</h1> */}
     </>
   )
+  }
+  else{
+    return <h1>Loading</h1>
+  }
 }
-export async function getServersideprops() {
+export async function getServersideprops () {
   const res = await fetch(`https://admin-qanvus.iiinigence.io/bpo-pages`)
   const BPOPageposts = await res.json()
   return {

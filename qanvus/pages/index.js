@@ -9,6 +9,7 @@ import TurkeyServicesAndList from './Components/HomePage/TurnkeyServicesAndList/
 
 export default function Home({ HomePageposts }) {
   let data = HomePageposts[0]
+
   return (
     <>
       <Script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/9087966.js"></Script>
@@ -20,10 +21,11 @@ export default function Home({ HomePageposts }) {
       <TurkeyServicesAndList data={data} />
     </>
   );
+  
 }
 
 
-export async function getServersideprops() {
+export async function getServersideprops () {
   const res = await fetch(`https://admin-qanvus.iiinigence.io/home-pages`)
   const HomePageposts = await res.json()
   return {

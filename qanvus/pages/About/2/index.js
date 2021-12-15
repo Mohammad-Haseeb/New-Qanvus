@@ -7,6 +7,7 @@ import PersonInfoTwoPageCardDetails from './InfoCards/index';
 
 const CareerPage = ({ AboutPageposts }) => {
     let data = AboutPageposts[0];
+   if(data.length > 0){
     return (
         <>
             <Script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/9087966.js"></Script>
@@ -22,6 +23,10 @@ const CareerPage = ({ AboutPageposts }) => {
             </div>
         </>
     )
+   }
+   else{
+       return <h1>Loading</h1>
+   }
 }
 
 const PersonInfoDetailsMain = ({ data }) => {
@@ -127,7 +132,7 @@ const CarrerApplySection = ({ heading, info }) => {
         </>
     )
 }
-export async function getServersideprops() {
+export async function getServersideprops () {
     const res = await fetch(`https://admin-qanvus.iiinigence.io/about-pages`)
     const AboutPageposts = await res.json()
     return {

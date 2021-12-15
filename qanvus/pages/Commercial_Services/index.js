@@ -10,6 +10,7 @@ import FourthIcon from './../../public/Commercial_Services/Purple_Icon_4.png';
 import CommercialApplySection from './CommercialApplySection/index';
 const CommercialServices = ({ CommercialPageposts }) => {
   let data = CommercialPageposts[0];
+ if(data.length > 0){
   return (
     <>
       <Script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/9087966.js"></Script>
@@ -29,9 +30,14 @@ const CommercialServices = ({ CommercialPageposts }) => {
       <CommercialApplySection heading={data["Schedule_Call_heading"]} details={data["Schedule_Call_info"]} />
     </>
   )
+ }
+ else{
+   return <h1>Loading</h1>
+ }
+ 
 }
 
-export async function getServersideprops() {
+export async function getServersideprops () {
   const res = await fetch(`https://admin-qanvus.iiinigence.io/commercial-industrial-formulations-pages`)
   const CommercialPageposts = await res.json()
   return {

@@ -10,6 +10,7 @@ import FourthIcon from './../../public/CliniclaTrials/Blue_Icon_4.png';
 import ClinicalApplySection from './ClinicalApplySection/index';
 const ClinicalTrials_Services = ({ ClinicalPageposts }) => {
   let data = ClinicalPageposts[0];
+  if(data.length > 0){
   return (
     <>
       <Script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/9087966.js"></Script>
@@ -33,9 +34,13 @@ const ClinicalTrials_Services = ({ ClinicalPageposts }) => {
       <ClinicalApplySection />
     </>
   )
+  }
+  else{
+    return <h1>Loading</h1>
+  }
 }
 
-export async function getServersideprops() {
+export async function getServersideprops () {
   const res = await fetch(`https://admin-qanvus.iiinigence.io/clinical-trials-pages`)
   const ClinicalPageposts = await res.json()
   return {

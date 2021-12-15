@@ -8,6 +8,7 @@ import LogosWithInfo from './LogoWithInfo/index';
 
 const Career = ({ CareerPageposts }) => {
     let data = CareerPageposts[0];
+    if(data.length > 0) {
     return (
         <>
             <Script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/9087966.js"></Script>
@@ -19,6 +20,10 @@ const Career = ({ CareerPageposts }) => {
             <CarrerApplySection heading={data["Apply_heading"]} info={data["Apply_info"][0]["Para"]} />
         </>
     )
+    }
+    else{
+        <h1>Loading</h1>
+    }
 }
 
 export const CarrerApplySection = ({ heading, info }) => {
@@ -87,7 +92,7 @@ export const CarrerApplySection = ({ heading, info }) => {
 export default Career;
 
 
-export async function getServersideprops() {
+export async function getServersideprops () {
     const res = await fetch(`https://admin-qanvus.iiinigence.io/career-pages`)
     const CareerPageposts = await res.json()
     return {

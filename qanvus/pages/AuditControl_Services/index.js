@@ -11,6 +11,7 @@ import AuditApplySection from './AuditApplySection/index';
 
 const AuditAndControlServices = ({ AuditPageposts }) => {
   let data = AuditPageposts[0];
+ if(data.length >0){
   return (
     <>
       <Script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/9087966.js"></Script>
@@ -32,8 +33,12 @@ const AuditAndControlServices = ({ AuditPageposts }) => {
       <AuditApplySection heading={data["Schedule_Call_heading"]} info={data["Schedule_Call_info"]} />
     </>
   )
+ }
+ else{
+   <h1>Loading</h1>
+ }
 }
-export async function getServersideprops() {
+export async function getServersideprops () {
   const res = await fetch(`https://admin-qanvus.iiinigence.io/audit-control-pages`)
   const AuditPageposts = await res.json()
   return {

@@ -5,6 +5,7 @@ import AboutInfo from './PersonalInfo/index';
 import GalleryAndInfo from './GalleryAndInfo/index';
 const About = ({ AboutPageposts }) => {
     let data = AboutPageposts[0];
+   if(data.length > 0){
     return (
         <>
             <Script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/9087966.js"></Script>
@@ -39,9 +40,13 @@ const About = ({ AboutPageposts }) => {
         `}</style>
         </>
     )
+   }
+   else{
+       return <h1>Loading</h1>
+   }
 }
 
-export async function getServersideprops() {
+export async function getServersideprops () {
     const res = await fetch(`https://admin-qanvus.iiinigence.io/about-pages`)
     const AboutPageposts = await res.json()
     return {
